@@ -69,9 +69,11 @@ border-primary border-t-transparent animate-spin"
       ) : (
         <div className="space-y-3">
           <p className="mt-6 mb-4">Recent Creations</p>
-          {creations.map((item) => (
-            <CreationItem key={item.id} item={item} />
-          ))}
+          {creations.length > 0 ? (
+            creations.map((item) => <CreationItem key={item.id} item={item} />)
+          ) : (
+            <p className="font-medium">No creations yet.</p>
+          )}
         </div>
       )}
     </div>

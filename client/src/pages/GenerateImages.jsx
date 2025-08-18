@@ -1,4 +1,4 @@
-import { Image, Sparkles } from "lucide-react";
+import { DownloadIcon, Image, Sparkles } from "lucide-react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useAuth } from "@clerk/clerk-react";
@@ -45,6 +45,22 @@ const GenerateImages = () => {
     }
     setLoading(false);
   };
+
+  const downloadImage = async (url) => {
+    try {
+      const response = await fetch(url);
+      const blob = await response.blob();
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "generated-image.png"; // yahan tum apna naam set kar sakte ho
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      toast.error("Download failed!", error);
+    }
+  };
+
   return (
     <div className="h-full overflow-y-scroll p-6 flex items-start flex-wrap gap-4 text-slate-700">
       {/* Left Col */}
@@ -138,8 +154,14 @@ text-gray-400"
             </div>
           </div>
         ) : (
-          <div className="mt-3 h-full">
+          <div className="relative group mt-3 h-full">
             <img src={content} alt="" className="w-full h-full" />
+            <div className="absolute bottom-0 top-0 right-0 left-0 p-3 flex justify-end group-hover:bg-gradient-to-b from-transparent to-black/80 text-white rounded-lg">
+              <DownloadIcon
+                className="cursor-pointer hidden group-hover:block"
+                onClick={() => downloadImage(content)}
+              />
+            </div>
           </div>
         )}
       </div>

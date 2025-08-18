@@ -65,7 +65,7 @@ const Community = () => {
               alt=""
               className="w-full h-full object-cover rounded-1g"
             />
-            <div className="absolute bottom-0 top-0 right-0 left-3 flex gap-2 items-end justify-end group-hover:justify-between p-3 group-hover:bg-gradient-to-b from-transparent to-black/80 text-white rounded- 1g">
+            <div className="absolute bottom-0 top-0 right-0 left-3 flex gap-2 items-end justify-end group-hover:justify-between p-3 group-hover:bg-gradient-to-b from-transparent to-black/80 text-white rounded-lg">
               <p className="text-sm hidden group-hover:block">
                 {creation.prompt}
               </p>
