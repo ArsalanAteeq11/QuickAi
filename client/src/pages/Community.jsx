@@ -1,6 +1,6 @@
 import { useAuth, useUser } from "@clerk/clerk-react";
 import React, { useEffect, useState } from "react";
-import { Heart } from "lucide-react";
+import { DownloadIcon, Heart } from "lucide-react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
@@ -51,6 +51,21 @@ const Community = () => {
       fetchCreation();
     }
   }, [user]);
+
+  const downloadImage = async (url) => {
+    try {
+      const response = await fetch(url);
+      const blob = await response.blob();
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "generated-image.png"; // yahan tum apna naam set kar sakte ho
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      toast.error("Download failed!", error);
+    }
+  };
   return !loading ? (
     <div className="flex-1 h-full flex flex-col gap-4 p-6">
       Creations
@@ -80,6 +95,12 @@ const Community = () => {
                   }`}
                 />
               </div>
+            </div>
+            <div className="absolute top-3 right-3 py-2 flex sm:hidden sm:group-hover:flex">
+              <DownloadIcon
+                className=" cursor-pointer text-white"
+                onClick={() => downloadImage(creation.content)}
+              />
             </div>
           </div>
         ))}

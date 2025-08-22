@@ -104,7 +104,7 @@ border-gray-200 min-h-96"
 text-gray-400"
             >
               <Eraser className="w-9 h-9" />
-              <p>
+              <p className="text-center">
                 Upload an image and click "Remove Background" to get started
               </p>
             </div>
@@ -114,7 +114,7 @@ text-gray-400"
             <img src={content} alt="" className="w-full h-full" />
             <div className="absolute bottom-0 top-0 right-0 left-0 p-3 flex justify-end group-hover:bg-gradient-to-b from-transparent to-black/80 text-white rounded-lg">
               <DownloadIcon
-                className="cursor-pointer hidden group-hover:block text-gray-500"
+                className="cursor-pointer sm:hidden sm:group-hover:block text-gray-600"
                 onClick={() => downloadImage(content)}
               />
             </div>

@@ -13,7 +13,7 @@ const Footer = () => {
             Write articles, generate images, and enhance your workflow.
           </p>
         </div>
-        <div className="flex-1 flex items-start md:justify-end gap-20">
+        <div className="flex-1 flex flex-col sm:flex-row items-start md:justify-end gap-10 sm:gap-20">
           <div>
             <h2 className="font-semibold mb-5 text-gray-800">Company</h2>
             <ul className="text-sm space-y-2">

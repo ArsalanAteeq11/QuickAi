@@ -110,7 +110,9 @@ border-gray-200 min-h-96 max-h-[600px]"
 text-gray-400"
             >
               <Edit className="w-9 h-9" />
-              <p>Enter a topic and click "Generate article" to get started</p>
+              <p className="text-center">
+                Enter a topic and click "Generate article" to get started
+              </p>
             </div>
           </div>
         ) : (

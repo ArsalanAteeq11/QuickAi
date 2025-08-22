@@ -88,7 +88,9 @@ border-gray-200 min-h-96 max-h-[600px]"
 text-gray-400"
             >
               <FileText className="w-9 h-9" />
-              <p>Upload a resume and click "Review Resume" to get started</p>
+              <p className="text-center">
+                Upload a resume and click "Review Resume" to get started
+              </p>
             </div>
           </div>
         ) : (
